@@ -1,0 +1,46 @@
+{
+  "name": "seatwise",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "packageManager": "pnpm@10.34.5",
+  "engines": {
+    "node": "24.14.1",
+    "pnpm": "10.34.5"
+  },
+  "scripts": {
+    "dev": "node --env-file=.env scripts/dev.mjs",
+    "dev:web": "pnpm --filter @seatwise/web dev",
+    "dev:api": "node --env-file=.env --import tsx apps/api/src/main.ts",
+    "dev:worker": "node --env-file=.env --import tsx apps/worker/src/main.ts",
+    "db:migrate": "node --env-file=.env --import tsx packages/db/src/migrate-cli.ts",
+    "db:seed": "node --env-file=.env --import tsx packages/db/src/seed-cli.ts",
+    "local:configure": "node scripts/configure-local.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --project unit",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test",
+    "test:integration": "node --env-file=.env scripts/integration.mjs",
+    "test:e2e": "playwright test",
+    "build": "pnpm --filter @seatwise/web build && tsc -p tsconfig.build.json && node scripts/build-runtime.mjs",
+    "start:api": "node --env-file=.env dist/apps/api/src/main.js",
+    "start:worker": "node --env-file=.env dist/apps/worker/src/main.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.64.0",
+    "@types/node": "24.19.2",
+    "@types/pg": "8.23.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint": "10.12.0",
+    "globals": "17.13.0",
+    "prettier": "3.9.10",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.71.2",
+    "vitest": "4.1.11"
+  }
+}
