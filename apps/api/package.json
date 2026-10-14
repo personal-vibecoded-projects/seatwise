@@ -1,0 +1,12 @@
+{
+  "name": "@seatwise/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@fastify/swagger": "9.9.2",
+    "@seatwise/contracts": "workspace:*",
+    "@seatwise/db": "workspace:*",
+    "fastify": "5.12.5"
+  }
+}

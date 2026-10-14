@@ -1,0 +1,22 @@
+{
+  "name": "@seatwise/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@seatwise/contracts": "workspace:*",
+    "@seatwise/domain": "workspace:*",
+    "@tanstack/react-query": "5.104.2",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-router": "7.18.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "5.1.4",
+    "vite": "7.3.7"
+  }
+}
